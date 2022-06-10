@@ -1,0 +1,48 @@
+{% extends 'bulkemailsenderapp/base.html' %}
+
+{% block title %} Email Sender {% endblock %}
+
+{% block navlist %}
+
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Home</a>
+  </li>
+  
+
+{% endblock %}
+
+{% block content %}
+  <div class="container-sm mt-3">
+    <form method="post">
+      {% csrf_token %}
+    <div class="row">
+      <div class="col-sm-12 col-lg-5 col-md-6">
+        {% if messages %}
+        <div class="mb-3">
+          {% for message in messages %}
+          <div class="alert alert-primary" role="alert">
+            {{ message }}
+          </div>
+          
+          {% endfor %}
+        </div>
+          {% endif %}
+
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Subject</label>
+              {{ form.subject }}
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+              {{ form.message }}
+            </div>
+            <input class="btn btn-outline-success" type="submit" value="Send Mail">          
+      </div>
+      <div class="col-sm-12 col-lg-6 col-md-6">
+        <label for="exampleFormControlTextarea1" class="form-label">List of Emails</label>
+          {{ form.to_email_list }}
+      </div>
+    </div>
+  </form>
+  </div>
+{% endblock %}
