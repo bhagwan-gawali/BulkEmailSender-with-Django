@@ -8,7 +8,8 @@ small app for sending bulk email with django
 1. clone repository or download into your machine.
 2. install the dependency of the project.
 3. change the settigs.py file (look at the bottom of the file Email Setting section)
-  # Email Settings 
+  Email Settings:
+  
   EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
   EMAIL_HOST = 'Enter your smtp-host'
   EMAIL_USE_TLS = True
